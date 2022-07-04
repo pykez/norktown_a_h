@@ -53,7 +53,7 @@ system without owners.
   
   Separando o processamento em Controllers, que são carregados de acordo com a requisição, novos diretórios podem ser acoplados ao sistema de forma modular, sendo necessário apenas organizar a arquitetura de arquivos pré-definida e a definição de rota para o novo diretório no '**./norktown/app.py**'. 
   
-  Como sugestão de desenvolvimento futuro, pode-se desenvolver uma tratativa para que os Controllers sejam carregados de acordo com o diretório da requisição. Para isso, deve-se definir um padrão de nomenclatura entre as classes e o endereço das requisições, e instanciar os respectivos Controllers de acordo com o que for recebido na URL da requisição. Assim, o projeto irá tornar-se ainda mais modular, não sendo mais necessário modificar o arquivo '**./norktown/app.py**' ao dicionar novos Controllers e funcionalidades.
+  Como sugestão de desenvolvimento futuro, pode-se desenvolver uma tratativa para que os Controllers sejam carregados de acordo com o diretório da requisição. Para isso, deve-se definir um padrão de nomenclatura entre as classes e o endereço das requisições, e instanciar os respectivos Controllers de acordo com o que for recebido na URL da requisição. Assim, o sistema irá tornar-se ainda mais modular, não sendo mais necessário modificar o arquivo '**./norktown/app.py**' ao dicionar novos Controllers e funcionalidades.
 
 
 
