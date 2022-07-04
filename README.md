@@ -30,15 +30,21 @@ system without owners.
 ### Exemplos de Requisições
 
 [GET] http://localhost:8080/citizen : Retorna todos os registros de cidadãos de Norktown.
+
 [GET - parâmetro de URL 'cpf'] http://localhost:8080/citizen?cpf=05195702942 : Retorna o cidadão portador do CPF '05195702942'.
+
 [GET - parâmetro de URL 'id'] http://localhost:8080/citizen?id=1 : Retorna o cidadão com o ID = '1', referente à tabela no banco de cidadãos.
 
 [GET] http://localhost:8080/vehicle : Retorna todos os registros de veículos de Norktown.
+
 [GET - parâmetro de URL 'cpf'] http://localhost:8080/vehicle?cpf=05195702942 : Retorna todos os registros de veículos associados ao cidadão com o cpf fornecido como parâmetro.
+
 [GET - parâmetro de URL 'plate'] http://localhost:8080/vehicle?plate=PZ65PWO : Retorna o veículo com placa 'PZ65PWO'.
+
 [GET - parâmetro de URL 'id'] http://localhost:8080/vehicle?id=1 : Retorna o veículo com o ID = '1', referente à tabela no banco de veículos.
 
 [POST - parâmetros de formulário 'name', 'cpf', 'address'] http://localhost:8080/citizen : Insere registro de cidadão de acordo com os parâmetros de formulário preenchidos no corpo da requisição. Campo 'address' é opcional.
+
 [POST - parâmetros de formulário 'cpf', 'plate', 'model', 'color'] http://localhost:8080/vehicle : Insere registro de veículo de acordo com os parâmetros de formulário preenchidos no corpo da requisição. Campo 'cpf' é referente ao proprietário do veículo, e deve estar associado a um registro de cidadão.
 
 
