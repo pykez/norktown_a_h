@@ -1,0 +1,11 @@
+# Flake8 (Verificador de erros para o Python)
+flake8==4.0.1
+
+# Flask
+flask==2.1.2
+
+# Adptador do python para o postgresql.
+psycopg2==2.9.3
+
+# SqlAlchemy (ORM)
+flask-sqlalchemy==2.5.1
