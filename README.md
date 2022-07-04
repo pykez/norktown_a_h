@@ -17,13 +17,31 @@ system without owners.
   Buscando atender os requisitos, este projeto apresenta um servidor inspirado na arquitetura REST para a consulta e inserção de registros.
   As validações de integridade de dados (limite de três carros por cidadão, por exemplo) foram concentradas no banco de dados.
   
-### Arquivos
+### Arquivos Principais
 
 * **./init.sql** -> Inicialização do banco. Definição dos relacionamentos, integridade de dados e validações.
-* **./Dockerfile_db** -> Dockerfile para o serviço do banco de dados Postgresql.
-* **./norktown/app.py** -> Configurações iniciais do SQLAlchemy e loader dos controllers, de acordo com a requisição HTTP e o método.
-* **./norktown/citizen/ControllerCitizen.py** -> Trata as requisições do domínio 'URL/citizen', 
+* **./Dockerfile_db** : Dockerfile para o serviço do banco de dados Postgresql.
+* **./norktown/app.py** : Configurações iniciais do SQLAlchemy e loader dos controllers, de acordo com a requisição HTTP e o método.
+* **./norktown/citizen/ControllerCitizen.py** : Trata as requisições do domínio 'URL/citizen', 
     comunicando-se com o modelo './norktown/citizen/ModelCitizen.py' quando necessário comunicar-se com o banco.
-* **./norktown/vehicle/ControllerVehicle.py** -> Trata as requisições do domínio 'URL/vehicle', 
+* **./norktown/vehicle/ControllerVehicle.py** : Trata as requisições do domínio 'URL/vehicle', 
     comunicando-se com o modelo './norktown/citizen/ModelVehicle.py' quando necessário comunicar-se com o banco.
  
+### Exemplos de Requisições
+
+[GET] http://localhost:8080/citizen : Retorna todos os registros de cidadãos de Norktown.
+[GET - parâmetro de URL 'cpf'] http://localhost:8080/citizen?cpf=05195702942 : Retorna o cidadão portador do CPF '05195702942'.
+[GET - parâmetro de URL 'id'] http://localhost:8080/citizen?id=1 : Retorna o cidadão com o ID = '1', referente à tabela no banco de cidadãos.
+
+[GET] http://localhost:8080/vehicle : Retorna todos os registros de veículos de Norktown.
+[GET - parâmetro de URL 'cpf'] http://localhost:8080/vehicle?cpf=05195702942 : Retorna todos os registros de veículos associados ao cidadão com o cpf fornecido como parâmetro.
+[GET - parâmetro de URL 'plate'] http://localhost:8080/vehicle?plate=PZ65PWO : Retorna o veículo com placa 'PZ65PWO'.
+[GET - parâmetro de URL 'id'] http://localhost:8080/vehicle?id=1 : Retorna o veículo com o ID = '1', referente à tabela no banco de veículos.
+
+[POST - parâmetros de formulário 'name', 'cpf', 'address'] http://localhost:8080/citizen : Insere registro de cidadão de acordo com os parâmetros de formulário preenchidos no corpo da requisição. Campo 'address' é opcional.
+[POST - parâmetros de formulário 'cpf', 'plate', 'model', 'color'] http://localhost:8080/vehicle : Insere registro de veículo de acordo com os parâmetros de formulário preenchidos no corpo da requisição. Campo 'cpf' é referente ao proprietário do veículo, e deve estar associado a um registro de cidadão.
+
+
+
+
+  
